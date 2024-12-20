@@ -7,6 +7,7 @@ const josefin = Josefin_Sans({
 });
 
 import "@/app/_styles/globals.css";
+import {ReservatioProvider} from "@/app/_components/ReservationContext";
 
 export const metadata = {
   title: {
@@ -25,7 +26,11 @@ export default function RootLayout({ children }) {
         <Header />
 
         <div className="flex-1 px-8 py-12 grid">
-          <main className="max-w-7xl mx-auto w-full">{children}</main>
+          <main className="max-w-7xl mx-auto w-full">
+            <ReservatioProvider>
+              {children}
+            </ReservatioProvider>
+          </main>
         </div>
       </body>
     </html>

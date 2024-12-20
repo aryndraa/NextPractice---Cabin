@@ -1,16 +1,14 @@
-import {EyeSlashIcon, MapPinIcon, UsersIcon} from "@heroicons/react/24/solid";
 import {getCabin, getCabins} from "@/app/_lib/data-service";
-import Image from "next/image";
-import TextExpander from "@/app/_components/TextExpander";
 import Reservation from "@/app/_components/Reservation";
 import {Suspense} from "react";
 import Spinner from "@/app/_components/Spinner";
 import Cabin from "@/app/_components/Cabin";
 
 export async function generateMetadata({ params }) {
-  const { name } = await getCabin(params.cabinId);
+  const param = await params;
+  const cabin  = await getCabin(param.cabinId);
   return {
-    title:`Cabin ${name}`,
+    title:`Cabin ${cabin.name}`,
   }
 }
 
@@ -27,13 +25,8 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }) {
 
-  const cabin = await getCabin(params.cabinId);
-
-
-
-
-
-  console.log(params)
+  const param = await params;
+  const cabin = await getCabin(param.cabinId);
 
   return (
     <div className="max-w-6xl mx-auto mt-8">

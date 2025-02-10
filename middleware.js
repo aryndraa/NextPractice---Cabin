@@ -5,3 +5,7 @@ export function middleware(request){
 
   return NextResponse.redirect(new URL("/about", request.url))
 }
+
+export const config = {
+  matcher: ["/account"]
+}

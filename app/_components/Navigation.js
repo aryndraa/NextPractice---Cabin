@@ -36,7 +36,7 @@ export default async function Navigation() {
           href="/account" 
           className='hover:text-accent-400 transition-colors flex items-center gap-4'
         >
-          <img 
+          <img
             className="h-8 rounded-full" 
             src={session.user.image}
             alt={session.user.name}
